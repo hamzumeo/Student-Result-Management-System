@@ -1,0 +1,43 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Results</h2>
+<a href="{% url 'result_add' %}" class="btn btn-primary mb-2">Add Result</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Total Marks</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results_summary %}
+        <tr>
+            <td>{{ r.student.name }}</td>
+            <td>{{ r.total }}</td>
+            <td>{{ r.percentage }}%</td>
+            <td>{{ r.grade }}</td>
+            <td style="color: {% if r.status == 'pass' %}green{% else %}red{% endif %};">
+                {{ r.status|title }}
+            </td>
+            <td>
+                {% for result in r.subjects %}
+                    <a href="{% url 'result_edit' result.pk %}" class="btn btn-sm btn-warning">Edit {{ result.subject }}</a>
+                    <a href="{% url 'result_delete' result.pk %}" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete this result?');">Delete {{ result.subject }}</a>
+                    <br>
+                {% endfor %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6" class="text-center">No results found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

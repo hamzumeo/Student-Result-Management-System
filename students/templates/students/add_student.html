@@ -1,0 +1,12 @@
+{% extends 'students/base.html' %}
+{% block content %}
+<h2>Add Student</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="btn btn-success">Save</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+</form>
+{% endblock %}

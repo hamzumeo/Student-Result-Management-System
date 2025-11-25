@@ -1,0 +1,11 @@
+{% extends 'students/base.html' %}
+{% block title %}Home - SRMS{% endblock %}
+
+{% block content %}
+<h2>Student Result Management System</h2>
+<p>Manage Students, Results, Grades, and Performance Summary.</p>
+
+<a href="{% url 'result_add' %}">Add Result</a>   <!-- must match urls.py name exactly -->
+<a href="{% url 'student_add' %}">Add Student</a> <!-- must match urls.py name exactly -->
+
+{% endblock %}
