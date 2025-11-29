@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "SRMS/wsgi.py",
@@ -7,9 +8,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "SRMS/wsgi.py"
-    }
+    { "src": "/(.*)", "dest": "SRMS/wsgi.py" }
   ]
 }
