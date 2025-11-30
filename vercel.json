@@ -1,9 +1,12 @@
 {
-  "version": 2,
   "builds": [
-    { "src": "SRMS/wsgi.py", "use": "@vercel/python", "config": { "maxLambdaSize": "50mb" } }
+    {
+      "src": "manage.py",
+      "use": "@vercel/python"
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "SRMS/wsgi.py" }
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "manage.py" }
   ]
 }
