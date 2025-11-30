@@ -1,12 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "manage.py",
+      "src": "SRMS/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/(.*)", "dest": "manage.py" }
+    {
+      "src": "/(.*)",
+      "dest": "SRMS/wsgi.py"
+    }
   ]
 }

@@ -11,5 +11,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SRMS.settings")
 
-# Rename the standard WSGI callable for Vercel
+# Vercel expects `app` or `handler`
 app = get_wsgi_application()
